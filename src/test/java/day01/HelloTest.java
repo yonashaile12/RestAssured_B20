@@ -36,7 +36,7 @@ public class HelloTest {
         Assertions.assertEquals(4,1+3);
     }
 
-    @Disabled
+    //@Disabled // this tag will disable the test
     @DisplayName("Test2 3 * 4 = 12")
     @Test
     public void test2(){
