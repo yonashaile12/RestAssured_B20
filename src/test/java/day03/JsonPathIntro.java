@@ -50,7 +50,7 @@ public class JsonPathIntro {
         int myId         = jp.getInt("id");
         String myName    = jp.getString("name");
         String MyGender  = jp.get("gender");
-        long MyPhone = jp.getLong("phone");
+        long MyPhone     = jp.getLong("phone");
 
         System.out.println("myId = " + myId);
         System.out.println("myName = " + myName);
