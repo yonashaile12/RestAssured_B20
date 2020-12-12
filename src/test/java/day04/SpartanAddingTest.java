@@ -6,7 +6,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
+import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,13 +14,15 @@ import java.util.Map;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.* ;
-public class SpartanAddingUpdatingTest {
+
+public class SpartanAddingTest {
 
     @BeforeAll
     public static void setUp(){
-        baseURI = "http://54.90.101.103:8000";
+        baseURI = "http://18.232.120.236:8000";
         basePath = "/api";
-
+        //18.232.120.236
+        //54.90.101.103
     }
 
     @AfterAll
@@ -109,9 +111,50 @@ public class SpartanAddingUpdatingTest {
                 .body("data.phone", is(9876543210L) )
         ;
 
+    }
+
+    @DisplayName("Add 1 Data with External Json file PUT/api/spartans")
+    @Test
+    public void testAddOneDataWithJsonFileAsBody(){
+
+        //create a file called singleSparrtan.json right under root directroty
+        // with below content
+        /*
+        {
+            "name": "Olivia",
+            "gender": "Female",
+            "phone": 6549873210
+         }
+
+         add below  code to print file object to this singleSparatn
+         */
+
+        File externalJson = new File("singleSpartan.json");
+        System.out.println(externalJson);
+
+        given()
+                .log().all()
+                .auth().basic("admin", "admin")
+                .contentType(ContentType.JSON)
+                .body(externalJson).
+
+                when()
+                .post("/spartans").
+
+                then()
+                .log().all()
+                .statusCode(is(201))
+                .contentType(ContentType.JSON)
+                .body("success", is("A Spartan is Born!"))
+                .body("data.name", is("Olivia") )
+                .body("data.gender", is("Female") )
+                .body("data.phone", is(6549873210L) )
+                ;
 
 
     }
+
+
 
 
 
