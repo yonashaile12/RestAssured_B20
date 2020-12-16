@@ -1,6 +1,7 @@
 package day06;
 
 import Pojo.Spartan;
+import Pojo.SpartanRead;
 import Utility.ConfigurationReader;
 import Utility.SpartanUtil;
 import io.restassured.http.ContentType;
@@ -11,6 +12,7 @@ import static io.restassured.RestAssured.* ;
 import static org.hamcrest.Matchers.* ;
 import org.junit.jupiter.api.DisplayName;
 
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
@@ -47,6 +49,8 @@ public class JsonToJavaObject {
          Map<String, Object> responseMap =  jp.getMap("");
         System.out.println(responseMap);
 
+        SpartanRead sp = jp.getObject("",SpartanRead.class);
+        System.out.println("sp = " + sp);
 
         /**
          * {
@@ -74,10 +78,22 @@ public class JsonToJavaObject {
          *
           */
 
+    }
 
+    @DisplayName("Get All Data with save Response JsonArray As Java Object")
+    @Test
+    public void getOneSpartanAbdSaveResponseJsonAsJavaObject(){
 
+        Response response = given()
+                                 .auth().basic("admin", "admin").
+                            when()
+                                .get("/spartans")
+                ;
 
+        JsonPath jp = response.jsonPath();
 
+        List<SpartanRead> allSpartansPOJO = jp.getList("", SpartanRead.class);
 
+        allSpartansPOJO.forEach(System.out::println);
     }
 }
