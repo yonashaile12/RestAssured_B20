@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -39,21 +41,43 @@ it's checking your knowledge on rest assured and jsonpath and java collection.
 
     @Test
     public void testHeight(){
-        given()
-                .contentType(ContentType.JSON)
-                .log().all().
-        when()
-                .get("resource/schema").
-        then()
-                .log().all()
-                .assertThat()
-                .statusCode(is(200))
-                .contentType(ContentType.JSON)
+        List<String> heightList =
+                                    given()
+                                        .contentType(ContentType.JSON)
+                                        .log().all().
+                                    when()
+                                         .get("people/").
+                                    then()
+                                         .log().all()
+                                         .assertThat()
+                                         .statusCode(is(200))
+                                         .contentType(ContentType.JSON)
                 //.body("height", is(payLoadMap.get("height"))) /api/<resource>/schema
-                .extract()
-                .jsonPath()
-                .getInt("height")
-        ;
+                                         .extract()
+                                         .jsonPath()
+                                            .getList("results.height")
+                                    ;
+
+
+
+
+        System.out.println(heightList);
+
+        int heightSize = heightList.size();
+        System.out.println(heightSize);
+        int sumHeight = 0;
+        int AvgHeight = 0;
+
+        for(String each: heightList) {
+            sumHeight += Integer.parseInt(each);
+        }
+        AvgHeight = sumHeight/heightSize;
+
+        System.out.println(AvgHeight);
+
+        
+
+
 
 
     }
