@@ -5,6 +5,7 @@ import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.*;
 import sun.plugin2.message.JavaScriptBaseMessage;
+import testBase.Library_TestBase;
 
 import java.util.List;
 import java.util.Map;
@@ -13,22 +14,10 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
 @TestMethodOrder(MethodOrderer.DisplayName.class)
-public class LibraryAppTest {
+public class LibraryAppTest extends Library_TestBase {
 
 
     private static String myToken;
-
-    @BeforeAll
-    public static void setUp(){
-        baseURI = "http://library1.cybertekschool.com";
-        basePath = "/rest/v1";
-
-    }
-
-    @AfterAll
-    public static void tearDown(){
-        reset();
-    }
 
     @DisplayName("1. Testing POST /login EndPoint")
     @Test

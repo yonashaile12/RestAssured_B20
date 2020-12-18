@@ -11,25 +11,15 @@ import org.junit.jupiter.api.*;
 import static io.restassured.RestAssured.* ;
 import static org.hamcrest.Matchers.* ;
 import org.junit.jupiter.api.DisplayName;
+import testBase.Spartan_TestBase;
 
 import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 
-public class JsonToJavaObject {
+public class JsonToJavaObject extends Spartan_TestBase {
     //        deserialization
-
-
-    @BeforeAll
-    public static void setUp(){
-        baseURI = ConfigurationReader.getProperty("spartan.base_url");
-        basePath = "/api" ;
-    }
-    @AfterAll
-    public static void tearDown(){
-        reset();
-    }
 
     @DisplayName("Get 1 Data with save Response Json As Java Object")
     @Test

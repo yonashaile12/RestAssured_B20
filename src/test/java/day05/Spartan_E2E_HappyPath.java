@@ -7,27 +7,28 @@ import org.junit.jupiter.api.*;
 import static io.restassured.RestAssured.* ;
 import static org.hamcrest.Matchers.* ;
 import org.junit.jupiter.api.DisplayName;
+import testBase.Spartan_TestBase;
 
 import java.util.Map;
 
 @TestMethodOrder(MethodOrderer.DisplayName.class)
 @DisplayName("Spartan App End to End CRUD Happy Path")
-public class Spartan_E2E_HappyPath {
+public class Spartan_E2E_HappyPath extends Spartan_TestBase {
 
     private static Map<String, Object> payLoadMap;
     private static int newID;
 
     // CRUD operation
-    @BeforeAll
-    public static void setUp(){
-        baseURI = ConfigurationReader.getProperty("spartan.base_url");
-        basePath = "/api" ;
-        payLoadMap = SpartanUtil.getRandomSpartanRequestPayLoad();
-    }
-    @AfterAll
-    public static void tearDown(){
-        reset();
-    }
+//    @BeforeAll
+//    public static void setUp(){
+//        baseURI = ConfigurationReader.getProperty("spartan.base_url");
+//        basePath = "/api" ;
+//        payLoadMap = SpartanUtil.getRandomSpartanRequestPayLoad();
+//    }
+//    @AfterAll
+//    public static void tearDown(){
+//        reset();
+//    }
     @DisplayName("1. Testing POST /api/spartans/Endpoint")
     @Test
     public void testAddData(){

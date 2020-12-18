@@ -8,21 +8,12 @@ import org.junit.jupiter.api.*;
 import static io.restassured.RestAssured.* ;
 import static org.hamcrest.Matchers.* ;
 import org.junit.jupiter.api.DisplayName;
+import testBase.Spartan_TestBase;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class PatchOneSpartanTest {
-
-    @BeforeAll
-    public static void setUp(){
-        baseURI = ConfigurationReader.getProperty("spartan.base_url");
-        basePath = "/api" ;
-    }
-    @AfterAll
-    public static void tearDown(){
-        reset();
-    }
+public class PatchOneSpartanTest extends Spartan_TestBase {
 
     @DisplayName("Patching one Data with Java Object")
     @Test

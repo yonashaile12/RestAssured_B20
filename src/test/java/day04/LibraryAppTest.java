@@ -6,6 +6,8 @@ import io.restassured.http.ContentType;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import testBase.Library_TestBase;
+
 import java.io.File;
 
 
@@ -13,22 +15,9 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.* ;
 
-public class LibraryAppTest {
-
+public class LibraryAppTest extends Library_TestBase {
 
     private static String myToken;
-
-    @BeforeAll
-    public static void setUp(){
-        baseURI = "http://library1.cybertekschool.com";
-        basePath = "/rest/v1";
-
-    }
-
-    @AfterAll
-    public static void tearDown(){
-        reset();
-    }
 
     @DisplayName("Testing POST /login EndPoint")
     @Test

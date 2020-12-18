@@ -6,6 +6,8 @@ import io.restassured.http.ContentType;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import testBase.Spartan_TestBase;
+
 import java.io.File;
 
 
@@ -13,20 +15,7 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.* ;
 
-public class spartanUpdatingTest {
-
-    @BeforeAll
-    public static void setUp(){
-        baseURI = "http://18.232.120.236:8000";
-        basePath = "/api";
-        //18.232.120.236
-        //54.90.101.103
-    }
-
-    @AfterAll
-    public static void tearDown(){
-        reset();
-    }
+public class spartanUpdatingTest extends Spartan_TestBase {
 
     @DisplayName("Add 1 Data with Raw Json String POST/api/spartans")
     @Test

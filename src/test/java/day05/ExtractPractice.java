@@ -7,6 +7,8 @@ import io.restassured.http.ContentType;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import testBase.Spartan_TestBase;
+
 import java.io.File;
 import java.util.List;
 
@@ -15,27 +17,13 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.* ;
 
-public class ExtractPractice {
+public class ExtractPractice extends Spartan_TestBase {
 
     /*
         extract() method of RestAssured
         enable you to extract data after validation
         in then section of the method chaining
     */
-    @BeforeAll
-    public static void setUp(){
-        baseURI = "http://18.232.120.236:8000";
-        basePath = "/api";
-        //18.232.120.236
-        //54.90.101.103
-    }
-
-    @AfterAll
-    public static void tearDown(){
-        reset();
-    }
-
-
     @DisplayName("Test GET /api/spartan/search with Basic auth")
     @Test
     public void testSearchAddExtractOneData(){

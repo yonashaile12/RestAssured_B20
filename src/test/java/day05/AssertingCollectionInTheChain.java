@@ -6,22 +6,24 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import testBase.Spartan_TestBase;
+
 import java.util.List;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class AssertingCollectionInTheChain {
+public class AssertingCollectionInTheChain extends Spartan_TestBase {
 
-    @BeforeAll
-    public static void setUp(){
-        baseURI = ConfigurationReader.getProperty("spartan.base_url");
-        basePath = "/api" ;
-    }
-    @AfterAll
-    public static void tearDown(){
-        reset();
-    }
+//    @BeforeAll
+//    public static void setUp(){
+//        baseURI = ConfigurationReader.getProperty("spartan.base_url");
+//        basePath = "/api" ;
+//    }
+//    @AfterAll
+//    public static void tearDown(){
+//        reset();
+//    }
     @DisplayName("Testing GET /api/spartans/search with Basic auth")
     @Test
     public void testSearchAndExtractData(){
