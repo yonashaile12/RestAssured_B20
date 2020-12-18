@@ -66,9 +66,9 @@ public class DB_Utility {
 
         try {
 
-            rs.close();
-            stmnt.close();
-            conn.close();
+            if(rs != null)   rs.close();
+            if(stmnt != null)  stmnt.close();
+            if(conn != null)  conn.close();
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
