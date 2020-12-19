@@ -1,18 +1,13 @@
 package day07;
 
-import Pojo.Spartan;
-import Utility.ConfigurationReader;
-import Utility.SpartanUtil;
-import io.restassured.RestAssured;
+import Pojo.Region;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import netscape.javascript.JSObject;
 import org.junit.jupiter.api.*;
 import static io.restassured.RestAssured.* ;
 import static org.hamcrest.Matchers.* ;
 import org.junit.jupiter.api.DisplayName;
-import org.w3c.dom.stylesheets.LinkStyle;
 import testBase.HR_ORDS_TestBase;
 
 import java.util.List;

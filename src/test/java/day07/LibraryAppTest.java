@@ -1,10 +1,9 @@
 package day07;
 
+import Pojo.BookCategory;
 import io.restassured.http.ContentType;
-import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.*;
-import sun.plugin2.message.JavaScriptBaseMessage;
 import testBase.Library_TestBase;
 
 import java.util.List;

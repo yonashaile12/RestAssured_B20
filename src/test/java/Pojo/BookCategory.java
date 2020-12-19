@@ -1,4 +1,4 @@
-package day07;
+package Pojo;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

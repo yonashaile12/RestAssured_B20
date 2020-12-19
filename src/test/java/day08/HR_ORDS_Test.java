@@ -1,24 +1,13 @@
 package day08;
-import Pojo.Spartan;
-import Utility.ConfigurationReader;
-import Utility.SpartanUtil;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
+import Pojo.Country;
 import io.restassured.response.Response;
-import netscape.javascript.JSObject;
 import org.junit.jupiter.api.*;
 import static io.restassured.RestAssured.* ;
-import static org.hamcrest.Matchers.* ;
+
 import org.junit.jupiter.api.DisplayName;
-import org.w3c.dom.stylesheets.LinkStyle;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import testBase.HR_ORDS_TestBase;
 
 import java.util.List;
-
-import static io.restassured.RestAssured.*;
 
 public class HR_ORDS_Test extends HR_ORDS_TestBase {
 

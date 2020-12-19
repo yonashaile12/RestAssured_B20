@@ -1,20 +1,17 @@
 package day08;
 import Utility.DB_Utility;
-import day07.Region;
+import Pojo.Region;
 import io.restassured.path.json.JsonPath;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 
 import io.restassured.response.Response;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import testBase.HR_ORDS_TestBase;
 
-import java.util.List;
 import java.util.Map;
 
-import static io.restassured.RestAssured.*;import static io.restassured.RestAssured.* ;
+import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;

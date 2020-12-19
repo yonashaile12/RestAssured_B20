@@ -63,6 +63,10 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+        </dependency>
     </dependencies>
 </project>
