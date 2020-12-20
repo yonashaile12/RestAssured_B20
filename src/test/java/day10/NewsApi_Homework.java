@@ -29,7 +29,8 @@ public class NewsApi_Homework {
                 .log().uri()
                 .baseUri("https://newsapi.org")
                 .basePath("v2/")
-                .queryParam("apikey","4c0cad403a3046e6b1814715437bef9e")
+                .header("Authorization","Bearer 4c0cad403a3046e6b1814715437bef9e")
+               // .queryParam("apikey","4c0cad403a3046e6b1814715437bef9e")
                 .queryParam("country","us").
         when()
                 .get("/top-headlines")//.prettyPeek()
@@ -39,8 +40,8 @@ public class NewsApi_Homework {
         System.out.println("allAuthor = " + allAuthor);
         System.out.println("allAuthor = " + allAuthor.size());
         List<String> allAuthorNoFilter = jp.getList("articles.author");
-        System.out.println("allAuthorNoFilter = " + allAuthorNoFilter);
         System.out.println("allAuthorNoFilter = " + allAuthorNoFilter.size());
+        System.out.println("allAuthorNoFilter = " + allAuthorNoFilter);
 
 
 
@@ -49,9 +50,11 @@ public class NewsApi_Homework {
 
         List<String> allAuthorWithNoNull =
                 jp.getList("articles.findAll{ it.source.id != null && it.author != null }.author");
-        System.out.println("allAuthorWithNoNull = " + allAuthorWithNoNull.size());
 
+        System.out.println("allAuthorWithNoNull = " + allAuthorWithNoNull.size());
         System.out.println("allAuthorWithNoNull = " + allAuthorWithNoNull);
+
+
 
         List<ArticlePOJO> allArticles =
                 jp.getList("articles.findAll{ it.source.id != null && it.author != null }", ArticlePOJO.class);
