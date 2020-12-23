@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 // we want to be able to name the fields any name we want
 // rather than being limited to use same name as json object key
 // but we need to tell Jackson data-bind
-// which json jey map to which pojo class field
+// which json key map to which pojo class field
 // we use annotation @JsonProperties for this
 public class BookCategory {
 

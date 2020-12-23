@@ -1,0 +1,161 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "The is Simple Schema for Search Spartan response, it define required structure of how json object should look like",
+  "type": "object",
+  "required": [
+    "content",
+    "pageable",
+    "totalPages",
+    "totalElements",
+    "last",
+    "size",
+    "number",
+    "sort",
+    "numberOfElements",
+    "first",
+    "empty"
+  ],
+  "properties": {
+    "content": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "gender",
+          "phone"
+        ],
+        "properties": {
+          "id": {
+            "title": "Id",
+            "type": "integer",
+            "examples": [
+              33
+            ],
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "name": {
+            "title": "Name",
+            "type": "string",
+            "default": "",
+            "examples": [
+              "Wilek"
+            ],
+            "minLength": 2,
+            "maxLength": 15
+          },
+          "gender": {
+            "title": "Gender",
+            "type": "string",
+            "default": "Male",
+            "examples": [
+              "Male"
+            ],
+            "pattern": "(Male|Female)"
+          },
+          "phone": {
+            "title": "Phone",
+            "type": "integer",
+            "examples": [
+              2877865902
+            ],
+            "minimum": 1000000000,
+            "maximum": 10000000000
+          }
+        }}
+    },
+    "pageable": {
+      "type": "object",
+      "required": [
+        "sort",
+        "offset",
+        "pageSize",
+        "pageNumber",
+        "unpaged",
+        "paged"
+      ],
+      "properties": {
+        "sort": {
+          "type": "object",
+          "required": [
+            "sorted",
+            "unsorted",
+            "empty"
+          ],
+          "properties": {
+            "sorted": {
+              "type": "boolean"
+            },
+            "unsorted": {
+              "type": "boolean"
+            },
+            "empty": {
+              "type": "boolean"
+            }
+          }
+        },
+        "offset": {
+          "type": "integer"
+        },
+        "pageSize": {
+          "type": "integer"
+        },
+        "pageNumber": {
+          "type": "integer"
+        },
+        "unpaged": {
+          "type": "boolean"
+        },
+        "paged": {
+          "type": "boolean"
+        }
+      }
+    },
+    "totalPages": {
+      "type": "integer"
+    },
+    "totalElements": {
+      "type": "integer"
+    },
+    "last": {
+      "type": "boolean"
+    },
+    "size": {
+      "type": "integer"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "sort": {
+      "type": "object",
+      "required": [
+        "sorted",
+        "unsorted",
+        "empty"
+      ],
+      "properties": {
+        "sorted": {
+          "type": "boolean"
+        },
+        "unsorted": {
+          "type": "boolean"
+        },
+        "empty": {
+          "type": "boolean"
+        }
+      }
+    },
+    "numberOfElements": {
+      "type": "integer"
+    },
+    "first": {
+      "type": "boolean"
+    },
+    "empty": {
+      "type": "boolean"
+    }
+  }
+}
+
