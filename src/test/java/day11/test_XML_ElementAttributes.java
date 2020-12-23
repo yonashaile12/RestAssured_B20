@@ -15,6 +15,7 @@ public class test_XML_ElementAttributes {
     public void testMovieAttributes(){
         // search for your favorite movie
         // assert the movie info according to your expected result
+        // http://www.omdbapi.com/?t=Wonder Woman 1984
         Response response =
                     given()
                             .baseUri("http://www.omdbapi.com")
@@ -37,6 +38,41 @@ public class test_XML_ElementAttributes {
         // we use .@attribute name to access the attribute
 
         System.out.println(xp.getInt("root.movie.@year"));
+        //http://ergast.com/api/f1
+    }
+
+    @DisplayName("Test Ergast Developer API /drivers endpoint")
+    @Test
+    public void testDrivers(){
+        String driverId =
+                            given()
+                                    .baseUri("http://ergast.com")
+                                    .basePath("/api/f1").
+                            when()
+                                    .get("/drivers").//prettyPeek().
+                            then()
+                                    .log().all()
+                                    .statusCode(200)
+                                    .body("MRData.DriverTable.Driver[0].@driverId", is("abate") )
+                                    .body("MRData.DriverTable.Driver[0].GivenName", is("Carlo"))
+                                    .extract()
+                                    .xmlPath()
+                                    .getString("MRData.DriverTable.Driver[0].@driverId")
+                            ;
+
+        // send a request to GET / drivers/:driverId endpoint using above driver id
+
+
+                    given()
+                            .baseUri("http://ergast.com")
+                            .basePath("/api/f1")
+                            .pathParam("driverId", driverId).
+                    when()
+                            .get("/drivers/{driverId}").
+                    then()
+                            .log().all()
+                            .statusCode(200)
+                            .body("MRData.DriverTable.Driver[0].GivenName", is("Carlo")) ;
 
 
     }
